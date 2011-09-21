@@ -67,7 +67,7 @@ namespace D3Sharp.Net.BNet.Packets
                     service.CallMethod(method, null, message, (msg => SendResponse(connection, header.RequestID, msg)));
                 }
             }
-            catch (NotImplementedException)
+            catch (UninitializedMessageException)
             {
                 Logger.Debug(string.Format("Unimplemented service method: {0} {1}", service.GetType().Name, method.Name));
             }
